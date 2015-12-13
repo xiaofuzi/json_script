@@ -65,3 +65,5 @@ json_script(function(convert) {
 
 * 文档地址: http://www.yangxiaofu.com/json_script
 * github: https://github.com/xiaofuzi/json_script
+
+遵从MIC协议

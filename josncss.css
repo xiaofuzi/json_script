@@ -1,0 +1,12 @@
+.wrap {
+  margin-top: 40px;
+  padding: 120px;
+  color: #444;
+}
+.wrap p {
+  padding-top: 420px;
+  font-size: 428px;
+}
+.wrap p a {
+  color: red;
+}
