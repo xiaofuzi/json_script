@@ -30,13 +30,13 @@ json文件：
 }
 ```
 
-## 安装
+### 安装
 
 ```git 
 npm install --save json_script
 ```
 
-## 使用
+### 使用
 
 1. 新建一个.js文件
 2. 添加如下代码
@@ -60,7 +60,7 @@ json_script(function(convert) {
 	console.log("渲染后的css:", css);
 })
 ```
-## 资源
+### 资源
 
 * 文档地址: http://www.yangxiaofu.com/json_script
 * github: https://github.com/xiaofuzi/json_script
