@@ -1,0 +1,16 @@
+.wrap {
+  margin-top: 20px;
+  padding: 20px;
+  color: #444;
+}
+.wrap p {
+  padding-top: 20px;
+  font-size: 28px;
+}
+.wrap p a {
+  color: red;
+}
+.wrap p a:hover {
+  color: #999;
+  font-size: 18px;
+}
