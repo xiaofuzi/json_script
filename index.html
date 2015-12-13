@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <title>json_script,一个轻量级的css预处理器</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./public/css/styles.css">
+    <link rel="stylesheet" href="./public/css/monokai.min.css" />
+</head>
+
+<body>
+    <div class="content">
+        <h2 id="-">文档列表</h2>
+        <ul>
+            <li>安装</li>
+            <li>API</li>
+        </ul>
+        <h2 id="-">安装</h2>
+        <pre><code class="lang-git">npm install --save json_script
+</code></pre>
+        <h2 id="api">API</h2>
+        <ul>
+            <li>引入<pre><code class="lang-node">  var json_script = require('json_script');
+</code></pre>
+            </li>
+            <li>json_script(callback)
+                <ul>
+                    <li>convert对象：这是内部的处理转换对象</li>
+                    <li>path: 可以是一个路径[字符串格式]或是一个函数</li>
+                    <li>convert.css(path) 示例： path为如下格式的函数
+                        <pre><code class="lang-node">  function(convert) {
+    convert.css({
+        '.wrap': {
+            'margin-top': '20px',
+            'padding': '20px',
+            'color': '#444',
+            p: {
+                'padding-top': '20px',
+                'font-size': '28px'
+            }
+        }
+    });
+}
+</code></pre>
+                        调用：
+                        <pre><code class="lang-node">json_script(function(convert) {
+    convert.css({
+        '.wrap': {
+            'margin-top': '20px',
+            'padding': '20px',
+            'color': '#444',
+            p: {
+                'padding-top': '20px',
+                'font-size': '28px'
+            }
+        }
+    });
+})
+</code></pre>
+                        <ul>
+                            <li>convert.import(path) path是一个有效的文件名，文件类型为commonJS格式js文件 如一个名为:jsonCss.js的文件：
+                                <pre><code class="lang-node">module.exports = function(convert) {
+  convert.css({
+      '.wrap': {
+          'margin-top': '20px',
+          'padding': '20px',
+          'color': '#444',
+          p: {
+              'padding-top': '20px',
+              'font-size': '28px',
+              a: {
+                  'color': "red",
+                  ':hover': {
+                      'color': '#999',
+                      'font-size': '18px'
+                  }
+              }
+          }
+      }
+  });
+  return convert;
+}
+</code></pre>
+                                调用：
+                                <pre><code class="lang-node">jsonScript(function(convert){
+  convert.import(__dirname + '/jsonCss');
+})
+</code></pre>
+                            </li>
+                            <li>json_script.render(callbakc):返回渲染后的css样式 示例：
+                                <pre><code class="lang-node">function(css){
+  console.log("渲染后的css:", css);
+}
+</code></pre>
+                            </li>
+                            <li>json_script.renderFile(file): 输出到指定文件</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script src="./public/js/highlight.min.js"></script>
+    <script src="./public/js/jquery-2.1.4.min.js"></script>
+    <script src="./public/js/scripts.js"></script>
+</body>
+
+</html>

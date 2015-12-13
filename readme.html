@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <title>json_script,一个轻量级的css预处理器</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./public/css/styles.css">
+    <link rel="stylesheet" href="./public/css/monokai.min.css" />
+</head>
+
+<body>
+    <div class="content">
+        <h2 id="json-to-css">json to css</h2>
+        <p>类似于less、sass这样的css预处理器，这里采用json格式的语法来编写css，如下所示：</p>
+        <p>json文件：</p>
+        <pre><code class="lang-javascript">{
+    '.wrap': {
+        'margin-top': '20px',
+        'padding': '20px',
+        'color': '#444',
+        p: {
+            'padding-top': '20px',
+            'font-size': '28px'
+        }
+    }
+}
+</code></pre>
+        <p>生成的css：</p>
+        <pre><code class="lang-css">.wrap {
+  margin-top: 20px;
+  padding: 20px;
+  color: #444;
+}
+.wrap p {
+  padding-top: 20px;
+  font-size: 28px;
+}
+</code></pre>
+        <h2 id="-">安装</h2>
+        <pre><code class="lang-git">npm install --save json_script
+</code></pre>
+        <h2 id="-">使用</h2>
+        <ol>
+            <li>新建一个.js文件</li>
+            <li>添加如下代码</li>
+        </ol>
+        <pre><code class="lang-node">var json_script = require('json_script');
+
+json_script(function(convert) {
+    convert.css({
+        '.wrap': {
+            'margin-top': '20px',
+            'padding': '20px',
+            'color': '#444',
+            p: {
+                'padding-top': '20px',
+                'font-size': '28px'
+            }
+        }
+    });
+}).render(function(css){
+    console.log("渲染后的css:");
+    console.log(css);
+})
+</code></pre>
+        <h2 id="-">资源</h2>
+        <ul>
+            <li>文档地址: <a href="http://www.yangxiaofu.com/json_script">http://www.yangxiaofu.com/json_script</a>
+            </li>
+            <li>github: <a href="https://github.com/xiaofuzi/json_script">https://github.com/xiaofuzi/json_script</a>
+            </li>
+        </ul>
+    </div>
+    <script src="./public/js/highlight.min.js"></script>
+    <script src="./public/js/jquery-2.1.4.min.js"></script>
+    <script src="./public/js/scripts.js"></script>
+</body>
+
+</html>
