@@ -57,8 +57,7 @@ json_script(function(convert) {
         }
     });
 }).render(function(css){
-	console.log("渲染后的css:");
-	console.log(css);
+	console.log("渲染后的css:", css);
 })
 ```
 ## 资源
